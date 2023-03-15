@@ -1,7 +1,7 @@
 export default class Canvas {
   constructor(id) {
-    this.HTMLElement = document.getElementById(id);
-    this.ctx = this.HTMLElement.getContext("2d");
+    this.canvas = document.getElementById(id);
+    this.ctx = this.canvas.getContext("2d");
     this.setCanvasDimensions();
     this.paint();
   }

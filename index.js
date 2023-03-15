@@ -1,17 +1,16 @@
 import Canvas from "./Canvas.js";
-
 const { fromEvent } = rxjs;
 
 const canvas = new Canvas("canvas");
-const click$ = fromEvent(canvas.HTMLElement, "click");
+
+const click$ = fromEvent(canvas.canvas, "click");
+const windowResize$ = fromEvent(window, "resize");
 
 click$.subscribe((event) => {
   console.log(`Clicked at ${event.clientX} ${event.clientY}`);
 });
 
-canvas.paint();
-
-window.addEventListener("resize", () => {
+windowResize$.subscribe(() => {
   canvas.setCanvasDimensions();
   canvas.paint();
 });
