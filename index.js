@@ -23,8 +23,8 @@ mouseMove$.subscribe((e) => {
 });
 
 mouseDown$.subscribe((e) => {
+  e.preventDefault();
   paw.src = paw.src.replace("paw1", "paw2");
-  console.log(paw.src);
 });
 
 mouseUp$.subscribe((e) => {
