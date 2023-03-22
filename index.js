@@ -21,9 +21,11 @@ function isBallCaught(x, y) {
 }
 
 click$.subscribe((event) => {
-  console.log(`Clicked at ${event.clientX} ${event.clientY}`);
-  console.log(isBallCaught(event.clientX, event.clientY));
-  console.log(ball.getBoundingClientRect());
+  if (isBallCaught(event.clientX, event.clientY)) {
+    console.log("ball caught!");
+  } else {
+    console.log("oops...");
+  }
 });
 
 mouseMove$.subscribe((e) => {
