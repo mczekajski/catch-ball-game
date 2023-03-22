@@ -1,18 +1,29 @@
-import Canvas from "./Canvas.js";
 const { fromEvent } = rxjs;
 
 const game = document.querySelector("#game");
 const paw = document.querySelector("#paw");
-
-// const canvas = new Canvas("canvas");
+const ball = document.querySelector("#ball");
 
 const click$ = fromEvent(game, "click");
 const mouseDown$ = fromEvent(game, "mousedown");
 const mouseUp$ = fromEvent(game, "mouseup");
 const mouseMove$ = fromEvent(game, "mousemove");
 
+function isBallCaught(x, y) {
+  const ballRect = ball.getBoundingClientRect();
+
+  return (
+    x > ballRect.x &&
+    x < ballRect.x + ballRect.width &&
+    y > ballRect.y &&
+    y < ballRect.y + ballRect.height
+  );
+}
+
 click$.subscribe((event) => {
   console.log(`Clicked at ${event.clientX} ${event.clientY}`);
+  console.log(isBallCaught(event.clientX, event.clientY));
+  console.log(ball.getBoundingClientRect());
 });
 
 mouseMove$.subscribe((e) => {
@@ -30,8 +41,3 @@ mouseDown$.subscribe((e) => {
 mouseUp$.subscribe((e) => {
   paw.src = paw.src.replace("paw2", "paw1");
 });
-
-// windowResize$.subscribe(() => {
-//   canvas.setCanvasDimensions();
-//   canvas.paint();
-// });
