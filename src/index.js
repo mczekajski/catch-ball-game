@@ -1,4 +1,5 @@
 import { fromEvent } from "rxjs";
+import "./index.css";
 
 const game = document.querySelector("#game");
 const paw = document.querySelector("#paw");
