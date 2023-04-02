@@ -21,17 +21,19 @@ function isBallCaught(x: number, y: number) {
   );
 }
 
-click$.subscribe((e: any) => {
-  if (isBallCaught(e.clientX, e.clientY)) {
+click$.subscribe((e: Event) => {
+  const mouseEvent = e as MouseEvent;
+  if (isBallCaught(mouseEvent.clientX, mouseEvent.clientY)) {
     console.log("ball caught!");
   } else {
     console.log("oops...");
   }
 });
 
-mouseMove$.subscribe((e: any) => {
-  let x = e.clientX;
-  let y = e.clientY;
+mouseMove$.subscribe((e: Event) => {
+  const mouseEvent = e as MouseEvent;
+  let x = mouseEvent.clientX;
+  let y = mouseEvent.clientY;
 
   paw.style.transform = `translate(${x - 25}px, ${y - 25}px)`;
 });
