@@ -1,4 +1,4 @@
-const { fromEvent } = rxjs;
+import { fromEvent } from "rxjs";
 
 const game = document.querySelector("#game");
 const paw = document.querySelector("#paw");
