@@ -1,18 +1,16 @@
-// @ts-nocheck
-
 import * as rxjs from "rxjs";
 import "./index.css";
 
-const game = document.querySelector("#game");
-const paw = document.querySelector("#paw");
-const ball = document.querySelector("#ball");
+const game = document.querySelector("#game") as HTMLDivElement;
+const paw = document.querySelector("#paw") as HTMLImageElement;
+const ball = document.querySelector("#ball") as HTMLImageElement;
 
 const click$ = rxjs.fromEvent(game, "click");
 const mouseDown$ = rxjs.fromEvent(game, "mousedown");
 const mouseUp$ = rxjs.fromEvent(game, "mouseup");
 const mouseMove$ = rxjs.fromEvent(game, "mousemove");
 
-function isBallCaught(x, y) {
+function isBallCaught(x: number, y: number) {
   const ballRect = ball.getBoundingClientRect();
 
   return (
@@ -23,15 +21,15 @@ function isBallCaught(x, y) {
   );
 }
 
-click$.subscribe((event) => {
-  if (isBallCaught(event.clientX, event.clientY)) {
+click$.subscribe((e: any) => {
+  if (isBallCaught(e.clientX, e.clientY)) {
     console.log("ball caught!");
   } else {
     console.log("oops...");
   }
 });
 
-mouseMove$.subscribe((e) => {
+mouseMove$.subscribe((e: any) => {
   let x = e.clientX;
   let y = e.clientY;
 
