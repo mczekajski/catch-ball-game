@@ -12,6 +12,11 @@ module.exports = {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
     ],
   },
   output: {
@@ -26,6 +31,9 @@ module.exports = {
     }),
     new MiniCssExtractPlugin(),
   ],
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+  },
   devServer: {
     static: {
       directory: path.join(__dirname, "/"),

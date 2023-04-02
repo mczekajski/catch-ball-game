@@ -1,14 +1,16 @@
-import { fromEvent } from "rxjs";
+// @ts-nocheck
+
+import * as rxjs from "rxjs";
 import "./index.css";
 
 const game = document.querySelector("#game");
 const paw = document.querySelector("#paw");
 const ball = document.querySelector("#ball");
 
-const click$ = fromEvent(game, "click");
-const mouseDown$ = fromEvent(game, "mousedown");
-const mouseUp$ = fromEvent(game, "mouseup");
-const mouseMove$ = fromEvent(game, "mousemove");
+const click$ = rxjs.fromEvent(game, "click");
+const mouseDown$ = rxjs.fromEvent(game, "mousedown");
+const mouseUp$ = rxjs.fromEvent(game, "mouseup");
+const mouseMove$ = rxjs.fromEvent(game, "mousemove");
 
 function isBallCaught(x, y) {
   const ballRect = ball.getBoundingClientRect();
