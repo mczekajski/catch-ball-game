@@ -15,6 +15,8 @@ interface IPoint {
   y: number;
 }
 
+moveBallToPoint(generateRandomPoint());
+
 function isBallCaught(x: number, y: number) {
   const ballRect = ball.getBoundingClientRect();
 
