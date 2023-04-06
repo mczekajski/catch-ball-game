@@ -39,4 +39,9 @@ module.exports = {
       directory: path.join(__dirname, "/"),
     },
   },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
 };
