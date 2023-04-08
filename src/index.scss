@@ -12,18 +12,18 @@ body {
   background-color: rgb(136, 170, 202);
   margin: 0 auto;
   cursor: none;
-}
 
-.paw {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50px;
-  height: 50px;
-  z-index: 1;
-}
-
-.ball {
-  width: 80px;
-  height: 80px;
+  .paw {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+  }
+  
+  .ball {
+    width: 80px;
+    height: 80px;
+  }
 }

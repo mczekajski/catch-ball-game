@@ -1,5 +1,5 @@
 import * as rxjs from "rxjs";
-import "./index.css";
+import "./index.scss";
 
 const game = document.querySelector("#game") as HTMLDivElement;
 const paw = document.querySelector("#paw") as HTMLImageElement;
